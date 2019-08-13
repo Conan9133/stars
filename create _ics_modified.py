@@ -647,8 +647,9 @@ class AllClusterIC (object):
 	vxx=rnd.normal(-0.5488128,13.341549,nlow,)
 	vyy=rnd.normal(-2.285615,10.244671,nlow,)
 	
-	vx1=vxx*4.74/1500         # I tried implementing distance to cluster by code but i didn't understand why it is showing error when i change 1500 pc to self.dcluster 
-	vy1=vyy*4.74/1500
+	d=self.dcluster.value_in(units.parsec)
+	vx1=vxx*4.74/d
+	vy1=vyy*4.74/d
 
 	lowmass_stars.vx  = vx1 |units.kms
 	lowmass_stars.vy  = vy1 |units.kms
@@ -697,8 +698,9 @@ class AllClusterIC (object):
 	vxx=rnd.normal(-0.5488128,13.341549,p.gas_filament_n)
 	vyy=rnd.normal(-2.285615,10.244671,p.gas_filament_n)
 	
-	vx1=vxx*4.74/1500
-	vy1=vyy*4.74/1500
+	d=self.dcluster.value_in(units.parsec)
+	vx1=vxx*4.74/d
+	vy1=vyy*4.74/d
 
 	filament.vx  = vx1 |units.kms
 	filament.vy  = vy1 |units.kms
